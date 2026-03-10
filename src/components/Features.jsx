@@ -126,8 +126,8 @@ const CollaborativeImpact = () => {
       <h3 className="font-heading font-bold text-2xl text-textLight mb-2 uppercase tracking-tight">Collaborative Impact</h3>
       <p className="font-heading text-sm text-textDark mb-8 font-medium">Leading engineering teams and mentoring peers.</p>
       
-      <div className="flex-grow flex items-center justify-center relative w-full h-48 bg-primary rounded-xl p-5 border border-white/10 shadow-inner">
-        <img src="/teamwork.png" alt="Collaborative Teamwork" className="w-full h-full object-contain max-w-[160px] drop-shadow-xl rounded-2xl mix-blend-screen" />
+      <div className="flex-grow flex items-center justify-center relative w-full h-48 bg-black rounded-xl border border-white/10 overflow-hidden shadow-inner p-0">
+        <img src="/teamwork.png" alt="Collaborative Teamwork" className="w-full h-full object-cover" />
       </div>
     </div>
   );

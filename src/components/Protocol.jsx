@@ -9,25 +9,22 @@ const cardsData = [
     step: "01",
     title: "Learn & Explore",
     desc: "Constantly expanding knowledge boundaries across physics, computer engineering, and autonomous robotics.",
-    svg: (
-      <img src="/sequence-1.png" alt="Learn and Explore" className="w-full h-full object-contain max-w-[200px] drop-shadow-2xl rounded-2xl mix-blend-screen" />
-    )
+    src: "/sequence-1.png",
+    alt: "Learn and Explore"
   },
   {
     step: "02",
     title: "Build & Test",
     desc: "Rigorous iterative prototyping from code logic to physical integration on FTC tracks and autonomous vehicles.",
-    svg: (
-      <img src="/sequence-2.png" alt="Build and Test" className="w-full h-full object-contain max-w-[200px] drop-shadow-2xl rounded-2xl mix-blend-screen" />
-    )
+    src: "/sequence-2.png",
+    alt: "Build and Test"
   },
   {
     step: "03",
     title: "Share & Iterate",
     desc: "Lifting up peers through dedicated mentorship, teaching, and leading ambitious teams to competition victories.",
-    svg: (
-      <img src="/sequence-3.png" alt="Share and Iterate" className="w-full h-full object-contain max-w-[200px] drop-shadow-2xl rounded-2xl mix-blend-screen" />
-    )
+    src: "/sequence-3.png",
+    alt: "Share and Iterate"
   }
 ];
 
@@ -86,8 +83,8 @@ const Protocol = () => {
               <p className="font-heading text-lg font-medium text-textDark leading-relaxed max-w-lg">{item.desc}</p>
             </div>
             {/* Visual Side */}
-            <div className="w-full aspect-square md:aspect-auto md:h-96 flex items-center justify-center p-8 bg-primary rounded-[2rem] border border-white/5 relative overflow-hidden shadow-inner">
-                {item.svg}
+            <div className="w-full aspect-square md:aspect-auto md:h-96 flex items-center justify-center bg-black rounded-[2rem] border border-white/5 relative overflow-hidden shadow-inner p-0">
+              <img src={item.src} alt={item.alt} className="absolute inset-0 w-full h-full object-cover" />
             </div>
           </div>
         </div>
