@@ -83,8 +83,8 @@ const Protocol = () => {
               <p className="font-heading text-lg font-medium text-textDark leading-relaxed max-w-lg">{item.desc}</p>
             </div>
             {/* Visual Side */}
-            <div className="w-full aspect-square md:aspect-auto md:h-96 flex items-center justify-center bg-black rounded-[2rem] border border-white/5 relative overflow-hidden shadow-inner p-0">
-              <img src={item.src} alt={item.alt} className="absolute inset-0 w-full h-full object-cover" />
+            <div className="w-full aspect-square md:aspect-auto md:h-96 flex items-center justify-center bg-transparent rounded-[2rem] border-none relative overflow-hidden shadow-none p-0 mix-blend-screen">
+              <img src={item.src} alt={item.alt} className="absolute inset-0 w-full h-full object-cover" style={{ filter: 'contrast(1.6) brightness(0.6)' }} />
             </div>
           </div>
         </div>

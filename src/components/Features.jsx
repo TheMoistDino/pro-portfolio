@@ -3,54 +3,48 @@ import gsap from 'gsap';
 
 // --- Card 1: Diagnostic Shuffler ---
 const DiagnosticShuffler = () => {
-  const [cards, setCards] = useState([
-    { id: 1, label: "Path-Following Logic", color: "border-accent/40" },
-    { id: 2, label: "Computer Vision", color: "border-textLight/20" },
-    { id: 3, label: "Motor Control", color: "border-textLight/10" }
-  ]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCards(prev => {
-        const newCards = [...prev];
-        const last = newCards.pop();
-        newCards.unshift(last);
-        return newCards;
-      });
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
+  const items = [
+    { label: "Path-Following Logic", color: "border-accent/40", dot: "bg-accent shadow-[0_0_10px_rgba(37,99,235,0.8)]" },
+    { label: "Computer Vision", color: "border-textLight/20", dot: "bg-textLight/20" },
+    { label: "Motor Control", color: "border-textLight/10", dot: "bg-textLight/20" },
+    { label: "Sensor Fusion", color: "border-accent/20", dot: "bg-textLight/20" },
+  ];
 
   return (
     <div className="flex flex-col h-full bg-background shadow-2xl rounded-[2rem] p-8 border border-white/5 relative overflow-hidden group">
       <h3 className="font-heading font-bold text-2xl text-textLight mb-2 uppercase tracking-tight">Autonomous Precision</h3>
       <p className="font-heading text-sm text-textDark mb-8 font-medium">Engineering intelligent robotics and complex path-following systems.</p>
       
-      <div className="flex-grow flex items-center justify-center relative w-full h-48 perspective-1000">
-        {cards.map((card, index) => {
-          const isTop = index === 0;
-          const yOffset = index * 20;
-          const scale = 1 - (index * 0.05);
-          const opacity = 1 - (index * 0.3);
-          
-          return (
-            <div 
-              key={card.id}
-              className={`absolute w-full max-w-[240px] bg-primary rounded-xl p-4 border flex items-center justify-center transition-all duration-[800ms] shadow-xl ${isTop ? 'border-accent/60 bg-blue-900/10 backdrop-blur-sm' : card.color}`}
-              style={{
-                zIndex: 10 - index,
-                transform: `translateY(${yOffset}px) scale(${scale})`,
-                opacity: opacity,
-                transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)'
-              }}
-            >
-              <div className="flex items-center gap-3 w-full">
-                <div className={`w-3 h-3 rounded-full ${isTop ? 'bg-accent animate-pulse shadow-[0_0_10px_rgba(37,99,235,0.8)]' : 'bg-textLight/20'}`}></div>
-                <span className="font-data font-bold text-xs text-textLight tracking-wider">{card.label}</span>
-              </div>
+      <style>{`
+        @keyframes verticalScrollContinuous {
+          0% { transform: translateY(0); }
+          100% { transform: translateY(-50%); }
+        }
+        .animate-vertical-scroll {
+          animation: verticalScrollContinuous 8s linear infinite;
+        }
+        .fade-mask {
+          mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+          -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+        }
+      `}</style>
+
+      <div className="flex-grow w-full h-48 overflow-hidden fade-mask relative">
+        <div className="flex flex-col animate-vertical-scroll w-full absolute top-0 hover:[animation-play-state:paused]">
+          {[1, 2].map((group) => (
+            <div key={group} className="flex flex-col gap-4 w-full pb-4">
+              {items.map((item, index) => (
+                <div 
+                  key={group + "-" + index}
+                  className={"w-full bg-primary rounded-xl p-4 flex items-center gap-3 border shadow-xl " + item.color}
+                >
+                  <div className={"w-3 h-3 rounded-full " + item.dot}></div>
+                  <span className="font-data font-bold text-xs text-textLight tracking-wider">{item.label}</span>
+                </div>
+              ))}
             </div>
-          );
-        })}
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -126,8 +120,8 @@ const CollaborativeImpact = () => {
       <h3 className="font-heading font-bold text-2xl text-textLight mb-2 uppercase tracking-tight">Collaborative Impact</h3>
       <p className="font-heading text-sm text-textDark mb-8 font-medium">Leading engineering teams and mentoring peers.</p>
       
-      <div className="flex-grow flex items-center justify-center relative w-full h-48 bg-black rounded-xl border border-white/10 overflow-hidden shadow-inner p-0">
-        <img src="/teamwork.png" alt="Collaborative Teamwork" className="w-full h-full object-cover" />
+      <div className="flex-grow flex items-center justify-center relative w-full h-48 bg-transparent rounded-xl border-none shadow-none p-0 overflow-hidden mix-blend-screen">
+        <img src="/teamwork.png" alt="Collaborative Teamwork" className="absolute inset-0 w-full h-full object-cover" style={{ filter: 'contrast(1.6) brightness(0.6)' }} />
       </div>
     </div>
   );
