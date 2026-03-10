@@ -127,26 +127,7 @@ const CollaborativeImpact = () => {
       <p className="font-heading text-sm text-textDark mb-8 font-medium">Leading engineering teams and mentoring peers.</p>
       
       <div className="flex-grow flex items-center justify-center relative w-full h-48 bg-primary rounded-xl p-5 border border-white/10 shadow-inner">
-        {/* Simple Teamwork/Connection Clipart Graphic */}
-        <svg viewBox="0 0 100 100" className="w-full h-full max-w-[160px] opacity-90 drop-shadow-xl" fill="none" xmlns="http://www.w3.org/2000/svg">
-          {/* Central Hub Node */}
-          <circle cx="50" cy="40" r="12" fill="#2563EB" className="animate-pulse" filter="drop-shadow(0 0 8px #2563EB)" />
-          
-          {/* Connected Peripheral Nodes */}
-          <circle cx="20" cy="75" r="8" fill="#F5F3EE" />
-          <circle cx="80" cy="75" r="8" fill="#F5F3EE" />
-          <circle cx="50" cy="85" r="8" fill="#F5F3EE" />
-          
-          {/* Connection Lines */}
-          <path d="M43 48 L25 70" stroke="#888888" strokeWidth="2" strokeDasharray="4 2" />
-          <path d="M57 48 L75 70" stroke="#888888" strokeWidth="2" strokeDasharray="4 2" />
-          <path d="M50 52 L50 77" stroke="#888888" strokeWidth="2" strokeDasharray="4 2" />
-          
-          {/* Abstract signals/data flow */}
-          <circle cx="34" cy="59" r="2" fill="#2563EB" />
-          <circle cx="66" cy="59" r="2" fill="#2563EB" />
-          <circle cx="50" cy="65" r="2" fill="#2563EB" />
-        </svg>
+        <img src="/teamwork.png" alt="Collaborative Teamwork" className="w-full h-full object-contain max-w-[160px] drop-shadow-xl rounded-2xl mix-blend-screen" />
       </div>
     </div>
   );
